@@ -1,22 +1,13 @@
 package hercules;
 import robocode.*;
 import java.awt.Color;
-// API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
-/**
- * Hercules - a robot by (Kevin Santiago Romero Osorio)
- */
+
 public class Hercules extends Robot{
-	/**
-	 * run: Hercules's default behavior
-	 */
+
 	public void run() {
-		// Initialization of the robot should be put here
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
+
 		setColors(Color.red,Color.red,Color.black); // body,gun,radar
-		// Robot main loop
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
 			if(getOthers() < 3){
 				ahead(150);
 				turnGunRight(360);
@@ -37,14 +28,8 @@ public class Hercules extends Robot{
 		}
 	}
 
-
-	/**
-	 * onScannedRobot: What to do when you see another robot
-	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// acá dispara mientras escanée un robot
-		// si le tiro a un enemigo le quito 1, pero si no le doy me lo quitan a mi
-		// e es la informacion tanke escaneado
+
 		if(e.getDistance()>700 && getEnergy()>80){
 			fire(3);
 		}
@@ -77,20 +62,14 @@ public class Hercules extends Robot{
 			}
 		}
 	}
-	/**
-	 * onHitByBullet: What to do when you're hit by a bullet
-	 */
+
 	public void onHitByBullet(HitByBulletEvent e){
-		// Replace the next line with any behavior you would like
 		// aca la e es la información de la bala 
 		turnRight((e.getBearing())-90);
 		back(280);
 	}
-	/**
-	 * onHitWall: What to do when you hit a wall
-	 */
+
 	public void onHitWall(HitWallEvent e){
-		// Replace the next line with any behavior you would like
 		// acá son todos los datos o información del muro
 		turnRight((e.getBearing())-90);
 	}	

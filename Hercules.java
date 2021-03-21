@@ -2,7 +2,7 @@ package hercules;
 import robocode.*;
 import java.awt.Color;
 
-public class Hercules extends Robot{
+public class Hercules extends Robot{//clase principal
 
 	public void run() {
 
